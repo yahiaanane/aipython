@@ -12,7 +12,7 @@ submitButton.addEventListener('click', async () => {
 });
 
 async function getResponse(prompt) {
-  const response = await fetch('/chatgpt', {
+  const response = await fetch('https://aipython.onrender.com', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
