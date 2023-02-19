@@ -30,7 +30,7 @@ class ChatGptHandler(BaseHTTPRequestHandler):
 
 def run(server_class=HTTPServer, handler_class=ChatGptHandler, port=8080):
     server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
+    httpd = HTTPServer(server_address, handler_class)  # explicitly pass in HTTPServer
     print(f'Listening at: http://localhost:{port}')
     httpd.serve_forever()
 
