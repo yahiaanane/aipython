@@ -1,0 +1,29 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.card {
+  margin-top: 50px;
+}
+
+.input-field label {
+  color: #757575;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #00acc1;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #00acc1;
+  box-shadow: 0 1px 0 0 #00acc1;
+}
+
+.btn {
+  background-color: #00acc1;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #00838f;
+}
