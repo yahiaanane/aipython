@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 
 import openai
 import json
@@ -30,9 +30,9 @@ class ChatGptHandler(BaseHTTPRequestHandler):
         response = {"choices": completions.choices}
         self.wfile.write(json.dumps(response).encode())
 
-def run(server_class=HTTPServer, handler_class=ChatGptHandler, port=8080):
+def run(server_class=ThreadingHTTPServer, handler_class=ChatGptHandler, port=8080):
     server_address = ('', port)
-    httpd = HTTPServer(server_address, handler_class)  # explicitly pass in HTTPServer
+    httpd = server_class(server_address, handler_class)  # explicitly pass in HTTPServer
     print(f'Listening at: http://localhost:{port}')
     httpd.serve_forever()
 
